@@ -43,6 +43,7 @@ podTemplate(yaml: '''
       container('kaniko') {
         stage('Build Hello World App') {
           sh "/kaniko/executor --context `pwd` --destination michaelcade1/helloworld:${env.BUILD_ID}"
+          sh /kaniko/executor --context `pwd` --destination michaelcade1/helloworld:latest  
         }
       }
     }
