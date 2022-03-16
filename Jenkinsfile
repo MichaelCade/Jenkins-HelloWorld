@@ -31,9 +31,9 @@ podTemplate(yaml: '''
     stage('Get Simple Hello World App') {
       checkout scm
       container('maven') {
-        stage('Build Hello World App') {
+        stage('Test Hello World App') {
           sh '''
-          echo pwd
+          echo "This could be a test"
           '''
         }
       }
@@ -41,7 +41,7 @@ podTemplate(yaml: '''
 
     stage('Build Hello World App') {
       container('kaniko') {
-        stage('Build Hello World App') {
+        stage('Upload to DockerHub') {
           sh "/kaniko/executor --context `pwd` --destination michaelcade1/helloworld:${env.BUILD_ID}"
           sh "/kaniko/executor --context `pwd` --destination michaelcade1/helloworld:latest"  
         }
