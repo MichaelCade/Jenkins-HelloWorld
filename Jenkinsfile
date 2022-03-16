@@ -33,7 +33,7 @@ podTemplate(yaml: '''
       container('maven') {
         stage('Build Hello World App') {
           sh '''
-          echo "Tests passed"
+          echo pwd
           '''
         }
       }
